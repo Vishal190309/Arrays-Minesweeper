@@ -43,7 +43,7 @@ namespace Gameplay
 
 		void BoardController::reset()
 		{
-			//cell->reset();
+			cell->reset();
 		}
 
 		void BoardController::deleteBoard()
