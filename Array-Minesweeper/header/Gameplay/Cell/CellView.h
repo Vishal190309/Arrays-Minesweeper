@@ -30,7 +30,7 @@ namespace Gameplay
             void update();
             void render();
             void setCellTexture();
-            sf::Vector2f getCellScreenPosition();
+            sf::Vector2f getCellScreenPosition(float width, float height);
         };
     }
 }

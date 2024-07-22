@@ -25,12 +25,12 @@ namespace Gameplay
 
         private:
             BoardView* board_view;
-            Cell::CellController* cell;
+            Cell::CellController* cells[number_of_colums];
 
+            
             void createBoard();
             void initializeCells();
             void destroy();
-            void resetBoard();
             void deleteBoard();
         };
     }
