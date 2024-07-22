@@ -1,14 +1,15 @@
 #pragma once
-#include "../../header/Gameplay/Board/BoardController.h"
+
 
 namespace Gameplay
 {
     namespace Board
     {
+        class BoardController;
         class BoardService
         {
         private:
-            Board::BoardController* board_controller;
+            BoardController* board_controller;
 
             void destroy();
 

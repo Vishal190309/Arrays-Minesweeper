@@ -1,5 +1,5 @@
 #include "../../header/Gameplay/Board/BoardService.h"
-
+#include "../../header/Gameplay/Board/BoardController.h"
 namespace Gameplay
 {
 	namespace Board
@@ -41,3 +41,4 @@ namespace Gameplay
 			delete(board_controller);
 		}
 	}
+}

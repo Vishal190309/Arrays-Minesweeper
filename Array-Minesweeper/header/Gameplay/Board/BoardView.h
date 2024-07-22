@@ -1,12 +1,11 @@
 #pragma once
-#include "../../header/UI/UIElement/ImageView.h"
+#include "../../../header/UI/UIElement/ImageView.h"
 
 namespace Gameplay
 {
     namespace Board
     {
         class BoardController;
-
         class BoardView
         {
         private:
@@ -16,8 +15,8 @@ namespace Gameplay
 
             const float background_alpha = 85.f;
 
-            ImageView* board_image;
-            ImageView* background_image;
+            UI::UIElement::ImageView* board_image;
+            UI::UIElement::ImageView* background_image;
             BoardController* board_controller;
 
             void initializeBackgroudImage();

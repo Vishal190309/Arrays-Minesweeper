@@ -1,8 +1,8 @@
-#include "../../header/Gameplay/Board/BoardView.h"
-#include "../../header/Gameplay/Board/BoardController.h"
-#include "../../header/Global/Config.h"
-#include "../../header/Global/ServiceLocator.h"
-#include "../../header/Graphics/GraphicService.h"
+#include "../../../header/Gameplay/Board/BoardView.h"
+#include "../../../header/Gameplay/Board/BoardController.h"
+#include "../../../header/Global/Config.h"
+#include "../../../header/Global/ServiceLocator.h"
+#include "../../../header/Graphics/GraphicService.h"
 
 namespace Gameplay
 {

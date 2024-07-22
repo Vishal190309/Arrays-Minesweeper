@@ -1,5 +1,5 @@
-#include "../../header/Gameplay/Board/BoardController.h"
-#include "../../header/Gameplay/Board/BoardView.h"
+#include "../../../header/Gameplay/Board/BoardController.h"
+#include "../../../header/Gameplay/Board/BoardView.h"
 
 namespace Gameplay
 {
