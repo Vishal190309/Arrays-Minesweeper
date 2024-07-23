@@ -61,7 +61,7 @@ namespace Gameplay
 				break;
 			}
 
-			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
+			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::FLAG);
 		}
 
 		CellState CellController::getCellState()

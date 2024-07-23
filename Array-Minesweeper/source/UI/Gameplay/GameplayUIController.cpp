@@ -1,5 +1,6 @@
 #include "../../header/UI/Gameplay/GaameplayUIController.h"
 #include "../../header/Global/ServiceLocator.h"
+#include "../../header/Global/Config.h"
 #include <iostream>
 #include <sstream>
 #include<string>
@@ -10,6 +11,7 @@ namespace UI {
         using namespace UI::UIElement;
         GameplayUIController::GameplayUIController()
         {
+            createButton();
             createTexts();
         }
 
@@ -24,8 +26,14 @@ namespace UI {
             time_text = new TextView();
         }
 
+        void GameplayUIController::createButton()
+        {
+            restart_button = new ButtonView();
+        }
+
         void GameplayUIController::initialize()
         {
+            initializeButton();
             initializeTexts();
         }
 
@@ -33,6 +41,27 @@ namespace UI {
         {
             initializeMineText();
             initializeTimeText();
+        }
+
+        void GameplayUIController::initializeButton()
+        {
+            restart_button->initialize("Restart Button",
+                Global::Config::restart_button_texture_path,
+                button_width, button_height,
+                sf::Vector2f(restart_button_left_offset, restart_button_top_offset));
+
+            registerButtonCallback();
+        }
+        
+        void GameplayUIController::registerButtonCallback()
+        {
+            restart_button->registerCallbackFuntion(std::bind(&GameplayUIController::restartButtonCallback, this));
+        }
+
+        void GameplayUIController::restartButtonCallback()
+        {
+            Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::BUTTON_CLICK);
+            Global::ServiceLocator::getInstance()->getGameplayService()->startGame();
         }
 
         void GameplayUIController::initializeTimeText()
@@ -45,20 +74,23 @@ namespace UI {
             mine_text->initialize("000", sf::Vector2f(mine_text_left_offset, mine_text_top_offset), FontType::ROBOTO, font_size, text_color);
         }
 
-        void GameplayUIController::destroyTexts()
+        void GameplayUIController::destroy()
         {
-            delete(mine_text);
-            delete(time_text);
+            delete (restart_button);
+            delete (mine_text);
+            delete (time_text);
         }
 
         void GameplayUIController::show()
         {
+            restart_button->show();
             mine_text->show();
             time_text->show();
         }
 
         void GameplayUIController::update()
         {
+            restart_button->update();
             updateMineText();
             updateTimeText();
         }
