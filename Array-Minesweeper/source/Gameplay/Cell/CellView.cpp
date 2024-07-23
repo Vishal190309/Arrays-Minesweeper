@@ -66,6 +66,24 @@ namespace Gameplay
             }
         }
 
+        void CellView::registerButtonCallback()
+        {
+            cell_button->registerCallbackFuntion(std::bind(&CellView::cellButtonCallback, this, std::placeholders::_1));
+        }
+
+        void CellView::cellButtonCallback(ButtonType button_type)
+        {
+            switch (button_type)
+            {
+            case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
+                cell_controller->openCell();
+                break;
+            case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+                cell_controller->flagCell();
+                break;
+            }
+
+        }
         sf::Vector2f CellView::getCellScreenPosition(float width, float height)
         {
             sf::Vector2i cell_index = cell_controller->getCellPosition();
