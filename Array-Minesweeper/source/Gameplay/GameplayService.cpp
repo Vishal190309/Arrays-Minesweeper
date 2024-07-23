@@ -4,26 +4,31 @@
 namespace Gameplay {
 	GameplayService::GameplayService()
 	{
-		gameplayController = new GameplayController();
+		gameplay_controller = new GameplayController();
 	}
 	GameplayService::~GameplayService()
 	{
-		delete(gameplayController);
+		delete(gameplay_controller);
 	}
 	void GameplayService::initialize()
 	{
-		gameplayController->initialize();
+		gameplay_controller->initialize();
 	}
 	void GameplayService::update()
 	{
-		gameplayController->update();
+		gameplay_controller->update();
 	}
 	void GameplayService::render()
 	{
-		gameplayController->render();
+		gameplay_controller->render();
 	}
 	void GameplayService::startGame()
 	{
-		gameplayController->reset();
+		gameplay_controller->reset();
+	}
+
+	float GameplayService::getRemainingTime()
+	{
+		return gameplay_controller->getRemainingTime();
 	}
 }

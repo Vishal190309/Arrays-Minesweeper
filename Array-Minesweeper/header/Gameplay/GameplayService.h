@@ -3,7 +3,7 @@ namespace Gameplay {
 	class GameplayController;
 	class GameplayService {
 	private:
-		GameplayController* gameplayController;
+		GameplayController* gameplay_controller;
 	public:
 		GameplayService();
 		~GameplayService();
@@ -13,5 +13,6 @@ namespace Gameplay {
 		void render();
 
 		void startGame();
+		float getRemainingTime();
 	};
 }

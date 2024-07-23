@@ -13,9 +13,20 @@ namespace Gameplay {
 	}
 	void GameplayController::update()
 	{
+		updateRemainingTime();
 	}
 	void GameplayController::render()
 	{
+	}
+
+	void GameplayController::updateRemainingTime()
+	{
+		remaining_time -= Global::ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+	}
+
+	float GameplayController::getRemainingTime()
+	{
+		return remaining_time;
 	}
 	void GameplayController::reset()
 	{
