@@ -1,4 +1,4 @@
-#include "../../header/UI/Gameplay/GaameplayUIController.h"
+#include "../../header/UI/Gameplay/GameplayUIController.h"
 #include "../../header/Global/ServiceLocator.h"
 #include "../../header/Global/Config.h"
 #include <iostream>
@@ -7,7 +7,7 @@
 #include <iomanip> 
 
 namespace UI {
-    namespace Gameplay {
+    namespace GameplayUI {
         using namespace UI::UIElement;
         GameplayUIController::GameplayUIController()
         {
@@ -17,7 +17,7 @@ namespace UI {
 
         GameplayUIController::~GameplayUIController()
         {
-            destroyTexts();
+            destroy();
         }
 
         void GameplayUIController::createTexts()
@@ -81,12 +81,7 @@ namespace UI {
             delete (time_text);
         }
 
-        void GameplayUIController::show()
-        {
-            restart_button->show();
-            mine_text->show();
-            time_text->show();
-        }
+       
 
         void GameplayUIController::update()
         {
@@ -97,8 +92,10 @@ namespace UI {
 
         void GameplayUIController::render()
         {
+            restart_button->render();
             mine_text->render();
             time_text->render();
+           
         }
 
         void GameplayUIController::updateMineText()
@@ -127,6 +124,8 @@ namespace UI {
 
         void GameplayUIController::show()
         {
+            restart_button->show();
+            mine_text->show();
             time_text->show();
         }
     }

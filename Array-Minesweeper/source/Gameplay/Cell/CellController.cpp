@@ -32,7 +32,7 @@ namespace Gameplay
 
 		void CellController::update()
 		{
-			
+			cell_view->update();
 		}
 
 		void CellController::render()

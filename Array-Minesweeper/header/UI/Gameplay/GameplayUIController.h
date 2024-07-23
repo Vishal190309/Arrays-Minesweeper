@@ -1,9 +1,10 @@
 #pragma once
 #include "../../header/UI/Interface/IUIController.h"
 #include "../../header/UI/UIElement/TextView.h"
+#include "../../header/UI/UIElement/ButtonView.h"
 #include <SFML/Graphics/Color.hpp>
 namespace UI {
-	namespace Gameplay {
+	namespace GameplayUI {
 		class GameplayUIController : public Interface::IUIController {
 
 		private:
@@ -46,12 +47,13 @@ namespace UI {
 			void initialize() override;
 			void update() override;
 			void render() override;
+			void show() override;
 
 			void updateMineText();
 
 			void updateTimeText();
 
-			void show();
+			
 		};
 	}
 }

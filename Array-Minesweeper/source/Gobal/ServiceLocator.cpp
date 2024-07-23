@@ -10,6 +10,7 @@ namespace Global
 	using namespace UI;
 	using namespace Gameplay;
 	using namespace Gameplay::Board;
+	using namespace GameplayUI;
 	using namespace Time;
 
 	ServiceLocator::ServiceLocator()
@@ -53,12 +54,13 @@ namespace Global
 	{
 		graphic_service->update();
 		event_service->update();
+		time_service->update();
 		if (Main::GameService::getGameState() == Main::GameState::GAMEPLAY) {
 			gameplay_service->update();
 			board_service->update();
 		}
 		ui_service->update();
-		time_service->update();
+		
 		
 	}
 

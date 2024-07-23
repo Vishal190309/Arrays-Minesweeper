@@ -30,6 +30,7 @@ namespace Gameplay {
 	}
 	void GameplayController::reset()
 	{
+		remaining_time = max_duration;
 		Global::ServiceLocator::getInstance()->getBoardService()->resetBoard();
 	}
 }
