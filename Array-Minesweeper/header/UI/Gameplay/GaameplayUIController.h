@@ -13,11 +13,17 @@ namespace UI {
 			const float time_text_top_offset = 65.f;
 			const float time_text_left_offset = 1090.f;
 
+			const float mine_text_top_offset = 65.f;
+			const float mine_text_left_offset = 660.f;
+
+			UIElement::TextView* mine_text;
 			UIElement::TextView* time_text;
 
 			void createTexts();
 			void initializeTexts();
 			void initializeTimeText();
+			void initializeMineText();
+			void destroyTexts();
 		public:
 			GameplayUIController();
 			~GameplayUIController();
@@ -25,6 +31,8 @@ namespace UI {
 			void initialize() override;
 			void update() override;
 			void render() override;
+
+			void updateMineText();
 
 			void updateTimeText();
 

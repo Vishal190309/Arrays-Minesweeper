@@ -45,6 +45,11 @@ namespace Gameplay
 			}
 		}
 
+		int BoardController::getMinesCount()
+		{
+			return mines_count;
+		}
+
 		void BoardController::initialize()
 		{
 			board_view->initialize();
