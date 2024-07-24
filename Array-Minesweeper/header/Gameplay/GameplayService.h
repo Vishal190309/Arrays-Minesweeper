@@ -1,6 +1,7 @@
 #pragma once
 namespace Gameplay {
 	class GameplayController;
+	enum class GameResult;
 	class GameplayService {
 	private:
 		GameplayController* gameplay_controller;
@@ -13,6 +14,7 @@ namespace Gameplay {
 		void render();
 		int getMinesCount();
 		void startGame();
+		void endGame(GameResult result);
 		float getRemainingTime();
 	};
 }

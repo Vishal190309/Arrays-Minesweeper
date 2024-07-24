@@ -6,6 +6,7 @@ namespace UI {
     }
 }
 
+
 namespace Gameplay
 {
     namespace Cell {
@@ -14,7 +15,7 @@ namespace Gameplay
     namespace Board
     {
         class BoardController;
-
+        enum class BoardState;
         class BoardService
         {
         private:
@@ -28,6 +29,10 @@ namespace Gameplay
             void initialize();
             void update();
             void render();
+
+            BoardState getBoardState();
+            void setBoardState(BoardState board_state);
+            void showBoard();
             void processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
             int getMinesCount();
             void resetBoard();

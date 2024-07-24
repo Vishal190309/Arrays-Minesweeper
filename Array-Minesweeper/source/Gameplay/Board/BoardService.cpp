@@ -33,6 +33,21 @@ namespace Gameplay
 			board_controller->render();
 		}
 
+		BoardState BoardService::getBoardState()
+		{
+			return board_controller->getBoardState();
+		}
+
+		void BoardService::setBoardState(BoardState board_state)
+		{
+			board_controller->setBoardState(board_state);
+		}
+
+		void BoardService::showBoard()
+		{
+			board_controller->showBoard();
+		}
+
 		void BoardService::processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
 		{
 			board_controller->processCellInput(cell_controller, button_type);
