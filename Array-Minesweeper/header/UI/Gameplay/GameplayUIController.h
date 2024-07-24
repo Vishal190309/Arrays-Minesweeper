@@ -5,6 +5,9 @@
 #include <SFML/Graphics/Color.hpp>
 namespace UI {
 	namespace GameplayUI {
+
+		
+
 		class GameplayUIController : public Interface::IUIController {
 
 		private:

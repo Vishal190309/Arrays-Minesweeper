@@ -32,6 +32,12 @@ namespace Gameplay {
 		gameplay_controller->reset();
 	}
 
+	void GameplayService::endGame(GameResult result)
+	{
+		// This function forwards the result of the game to the controller's endGame function.
+		gameplay_controller->endGame(result); // Trigger the endGame logic in the controller.
+	}
+
 	float GameplayService::getRemainingTime()
 	{
 		return gameplay_controller->getRemainingTime();

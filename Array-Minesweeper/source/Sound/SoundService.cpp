@@ -20,9 +20,13 @@ namespace Sound
 	void SoundService::loadSoundFromFile()
 	{
 		if (!buffer_button_click.loadFromFile(Config::button_click_sound_path))
-			printf("Error loading background music file");
+			printf("Error loading sound file");
 		if (!buffer_flag_sound.loadFromFile(Config::flag_sound_path))
-			printf("Error loading background music file");
+			printf("Error loading sound file");
+		if (!buffer_explosion.loadFromFile(Config::explosion_sound_path))
+			printf("Error loading sound file");
+		if (!buffer_game_won.loadFromFile(Config::game_won_sound_path))
+			printf("Error loading sound file");
 	}
 
 	void SoundService::playSound(SoundType soundType)
@@ -34,6 +38,12 @@ namespace Sound
 			break;
 		case SoundType::FLAG:
 			sound_effect.setBuffer(buffer_flag_sound);
+			break;
+		case SoundType::EXPLOSION:
+			sound_effect.setBuffer(buffer_explosion);
+			break;
+		case SoundType::GAME_WON:
+			sound_effect.setBuffer(buffer_game_won);
 			break;
 		default:
 			printf("Invalid sound type");
