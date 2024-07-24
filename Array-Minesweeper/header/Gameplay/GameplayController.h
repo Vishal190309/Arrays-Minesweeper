@@ -25,6 +25,7 @@ namespace Gameplay {
 
 		void initialize();
 		void update();
+		bool isTimeOver();
 		void render();
 
 		void updateRemainingTime();

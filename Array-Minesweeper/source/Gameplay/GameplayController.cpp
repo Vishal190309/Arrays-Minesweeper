@@ -16,7 +16,13 @@ namespace Gameplay {
 	void GameplayController::update()
 	{
 		updateRemainingTime();
+		if (isTimeOver())
+		endGame(GameResult::LOST);
+
 	}
+
+	bool GameplayController::isTimeOver() { return (remaining_time <= 1); }
+
 	void GameplayController::render()
 	{
 	}
