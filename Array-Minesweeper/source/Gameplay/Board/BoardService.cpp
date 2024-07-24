@@ -1,10 +1,12 @@
 #include "../../header/Gameplay/Board/BoardService.h"
 #include "../../header/Gameplay/Board/BoardController.h"
+#include "../../header/Gameplay/Cell/CellController.h"
+#include "../../header/UI/UIElement/ButtonView.h"
 namespace Gameplay
 {
 	namespace Board
 	{
-
+		
 		BoardService::BoardService()
 		{
 			board_controller = nullptr;
@@ -29,6 +31,11 @@ namespace Gameplay
 		void BoardService::render()
 		{
 			board_controller->render();
+		}
+
+		void BoardService::processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
+		{
+			board_controller->processCellInput(cell_controller, button_type);
 		}
 
 		int BoardService::getMinesCount()

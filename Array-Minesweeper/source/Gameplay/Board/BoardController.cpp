@@ -1,5 +1,8 @@
 #include "../../../header/Gameplay/Board/BoardController.h"
 #include "../../../header/Gameplay/Board/BoardView.h"
+#include "../../../header/UI/UIElement/ButtonView.h"
+#include "../../../header/Global/ServiceLocator.h"
+#include "../../../header/Gameplay/Cell/CellModel.h"
 #include <array>
 
 namespace Gameplay
@@ -47,7 +50,7 @@ namespace Gameplay
 
 		int BoardController::getMinesCount()
 		{
-			return mines_count;
+			return mines_count - flagged_cells;
 		}
 
 		void BoardController::initialize()
@@ -80,8 +83,49 @@ namespace Gameplay
 			}
 		}
 
+		void BoardController::openCell(sf::Vector2i cell_position)
+		{
+			if (board[cell_position.x][cell_position.y]->canOpenCell())
+			{
+				board[cell_position.x][cell_position.y]->openCell();
+			}
+		}
+
+		void BoardController::flagCell(sf::Vector2i cell_position)
+		{
+			switch (board[cell_position.x][cell_position.y]->getCellState())
+			{
+			case::Gameplay::Cell::CellState::FLAGGED:
+				Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::FLAG);
+				flagged_cells--; //Used to update Gameplay UI
+				break;
+			case::Gameplay::Cell::CellState::HIDDEN:
+				Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::FLAG);
+				flagged_cells++; //Used to update Gameplay UI
+				break;
+			}
+
+			board[cell_position.x][cell_position.y]->flagCell();
+		}
+
+		void BoardController::processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type)
+		{
+			switch (button_type)
+			{
+			case UI::UIElement::ButtonType::LEFT_MOUSE_BUTTON:
+				openCell(cell_controller->getCellPosition());
+				break;
+			case UI::UIElement::ButtonType::RIGHT_MOUSE_BUTTON:
+				flagCell(cell_controller->getCellPosition());
+				break;
+			}
+		}
+
+		
+
 		void BoardController::reset()
 		{
+			flagged_cells = 0;
 			resetBoard();
 		}
 
@@ -106,6 +150,7 @@ namespace Gameplay
 				}
 			}
 		}
+
 
 		void BoardController::destroy()
 		{

@@ -2,8 +2,18 @@
 #include <sfml/Graphics.hpp>
 #include "../../header/Gameplay/Cell/CellController.h"
 
+namespace UI {
+    namespace UIElement {
+        enum class ButtonType;
+    }
+}
+
+
 namespace Gameplay
 {
+    namespace Cell {
+        class CellController;
+    }
     namespace Board
     {
         class BoardView;
@@ -21,6 +31,9 @@ namespace Gameplay
             void initialize();
             void update();
             void render();
+            void openCell(sf::Vector2i cell_position);
+            void flagCell(sf::Vector2i cell_position);
+            void processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
             void reset();
             int getMinesCount();
             void resetBoard();
@@ -28,7 +41,7 @@ namespace Gameplay
         private:
             BoardView* board_view;
             Cell::CellController* board[number_of_rows][number_of_colums];
-
+            int flagged_cells = 0;
             
             void createBoard();
             void initializeCells();
