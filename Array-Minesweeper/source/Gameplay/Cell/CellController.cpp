@@ -77,6 +77,11 @@ namespace Gameplay
 			return cell_model->getCellValue();
 		}
 
+		void CellController::setCellValue(CellValue value)
+		{
+			cell_model->setCellValue(value);
+		}
+
 		sf::Vector2i CellController::getCellPosition()
 		{
 			return cell_model->getCellPosition();
