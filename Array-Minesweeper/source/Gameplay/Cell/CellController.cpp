@@ -44,7 +44,6 @@ namespace Gameplay
 		{
 			cell_model->setCellState(CellState::OPEN);
 
-			ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 		}
 
 		bool CellController::canOpenCell()

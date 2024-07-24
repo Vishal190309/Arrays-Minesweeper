@@ -70,7 +70,11 @@ namespace Gameplay {
 
 	void GameplayController::gameWon()
 	{
-		// Implement game won specific logic here.
+		game_result = GameResult::WON;
+		beginGameOverTimer();
+		Global::ServiceLocator::getInstance()->getBoardService()->flagAllMines();
+		Global::ServiceLocator::getInstance()->getBoardService()->setBoardState(Board::BoardState::COMPLETED);
+		Global::ServiceLocator::getInstance()->getSoundService()->playSound(Sound::SoundType::GAME_WON);
 	}
 
 	void GameplayController::gameLost()

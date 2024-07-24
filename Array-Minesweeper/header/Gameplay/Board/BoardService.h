@@ -33,6 +33,7 @@ namespace Gameplay
             BoardState getBoardState();
             void setBoardState(BoardState board_state);
             void showBoard();
+            void flagAllMines();
             void processCellInput(Cell::CellController* cell_controller, UI::UIElement::ButtonType button_type);
             int getMinesCount();
             void resetBoard();
